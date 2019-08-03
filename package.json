@@ -1,0 +1,17 @@
+{
+  "name": "gqlsummitapi",
+  "version": "1.0.0",
+  "description": "Apollo graphql server for the Optimistic UI: Predicting the future presentation at 2019 GraphQL Summit",
+  "main": "src/server.js",
+  "repository": "https://github.com/KennyHammerlund/gqlsummmitApi.git",
+  "author": "Kenny Hammerlund <Kenny.hammerlund@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./src/server.js"
+  },
+  "dependencies": {
+    "apollo-server": "^2.8.1",
+    "apollo-server-express": "^2.8.1",
+    "graphql": "^14.4.2"
+  }
+}
