@@ -70,3 +70,9 @@ server.listen({ port: PORT }).then(({ url }) => {
 this will allow you to run `yarn start` and run your server. Test it out and see if it works
 
 # v2.0.0
+I prefer using webpack, so lets set that up. We will also get nodemon set up to monitor our dev server for changes and restart on changes. 
+### Webpack
+https://webpack.js.org/
+### Nodemon
+https://nodemon.io/
+
