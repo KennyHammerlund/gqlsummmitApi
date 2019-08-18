@@ -1,6 +1,6 @@
-const { ApolloServer, gql } = require("apollo-server");
+import { ApolloServer, gql } from "apollo-server";
 
-// not required but can be useful if you run multiple servers. 
+// not required but can be useful if you run multiple servers.
 const PORT = 2999;
 
 // The GraphQL schema

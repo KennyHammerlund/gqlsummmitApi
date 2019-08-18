@@ -73,6 +73,23 @@ this will allow you to run `yarn start` and run your server. Test it out and see
 I prefer using webpack, so lets set that up. We will also get nodemon set up to monitor our dev server for changes and restart on changes. 
 ### Webpack
 https://webpack.js.org/
+
 ### Nodemon
 https://nodemon.io/
 
+`yarn add webpack`
+`yarn add webpack-cli`
+
+`yarn add webpack-node-externals`
+`yarn add babel-loader`
+`yarn add @babel/core`
+`yarn add babel-plugin-transform-regenerator`
+`yarn add babel-plugin-transform-runtime`
+`yarn add babel-preset-env`
+`yarn add babel-preset-stage-0`
+
+
+copy these files
+.babelrc
+webpack.config.js
+webpack.local.js
