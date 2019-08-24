@@ -1,0 +1,5 @@
+scalar Date
+scalar DateTime
+
+# import Query.* from 'upload/schema.graphql'
+# import Query.* from 'application/schema.graphql'

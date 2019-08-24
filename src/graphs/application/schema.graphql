@@ -1,0 +1,9 @@
+type Query {
+  test: String
+  summitUpload: SummitUpload
+}
+
+type SummitUpload {
+  result: String
+  success: Boolean
+}

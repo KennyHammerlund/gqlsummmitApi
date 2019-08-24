@@ -86,6 +86,73 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/graphs/resolvers.js":
+/*!*********************************!*\
+  !*** ./src/graphs/resolvers.js ***!
+  \*********************************/
+/*! exports provided: uploadRes, application */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _upload_resolvers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./upload/resolvers */ "./src/graphs/upload/resolvers.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "uploadRes", function() { return _upload_resolvers__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "application", function() { return _upload_resolvers__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+
+/***/ }),
+
+/***/ "./src/graphs/upload/resolvers.js":
+/*!****************************************!*\
+  !*** ./src/graphs/upload/resolvers.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! babel-runtime/regenerator */ "babel-runtime/regenerator");
+/* harmony import */ var babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! babel-runtime/helpers/asyncToGenerator */ "babel-runtime/helpers/asyncToGenerator");
+/* harmony import */ var babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+var _this = undefined;
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  Query: {
+    application: function () {
+      var _ref = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(obj, _ref2, ctx) {
+        var input = _ref2.input;
+        return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                return _context.abrupt("return", {
+                  online: true
+                });
+
+              case 1:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, _this);
+      }));
+
+      return function application(_x, _x2, _x3) {
+        return _ref.apply(this, arguments);
+      };
+    }()
+  }
+});
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -109,34 +176,29 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var babel_runtime_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! babel-runtime/helpers/taggedTemplateLiteral */ "babel-runtime/helpers/taggedTemplateLiteral");
-/* harmony import */ var babel_runtime_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var graphql_import__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-import */ "graphql-import");
+/* harmony import */ var graphql_import__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_import__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var apollo_server__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! apollo-server */ "apollo-server");
 /* harmony import */ var apollo_server__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(apollo_server__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash */ "lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _graphs_resolvers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./graphs/resolvers */ "./src/graphs/resolvers.js");
 
 
-var _templateObject = babel_runtime_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0___default()(["\n  type Query {\n    \"A simple type for getting started!\"\n    hello: String\n  }\n"], ["\n  type Query {\n    \"A simple type for getting started!\"\n    hello: String\n  }\n"]);
 
 
+
+
+var typeDefs = Object(graphql_import__WEBPACK_IMPORTED_MODULE_0__["importSchema"])("./src/graphs/schema.graphql");
 
 // not required but can be useful if you run multiple servers.
 var PORT = 2999;
 
-// The GraphQL schema
-var typeDefs = Object(apollo_server__WEBPACK_IMPORTED_MODULE_1__["gql"])(_templateObject);
-
-// A map of functions which return data for the schema.
-var resolvers = {
-  Query: {
-    hello: function hello() {
-      return "world";
-    }
-  }
-};
-
 var server = new apollo_server__WEBPACK_IMPORTED_MODULE_1__["ApolloServer"]({
   typeDefs: typeDefs,
-  resolvers: resolvers
+  resolvers: lodash__WEBPACK_IMPORTED_MODULE_2___default.a.reduce(_graphs_resolvers__WEBPACK_IMPORTED_MODULE_3__, function (prev, next) {
+    return lodash__WEBPACK_IMPORTED_MODULE_2___default.a.merge(prev, next);
+  })
 });
 
 // Start accepting connections.
@@ -159,14 +221,47 @@ module.exports = require("apollo-server");
 
 /***/ }),
 
-/***/ "babel-runtime/helpers/taggedTemplateLiteral":
-/*!**************************************************************!*\
-  !*** external "babel-runtime/helpers/taggedTemplateLiteral" ***!
-  \**************************************************************/
+/***/ "babel-runtime/helpers/asyncToGenerator":
+/*!*********************************************************!*\
+  !*** external "babel-runtime/helpers/asyncToGenerator" ***!
+  \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = require("babel-runtime/helpers/taggedTemplateLiteral");
+module.exports = require("babel-runtime/helpers/asyncToGenerator");
+
+/***/ }),
+
+/***/ "babel-runtime/regenerator":
+/*!********************************************!*\
+  !*** external "babel-runtime/regenerator" ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("babel-runtime/regenerator");
+
+/***/ }),
+
+/***/ "graphql-import":
+/*!*********************************!*\
+  !*** external "graphql-import" ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("graphql-import");
+
+/***/ }),
+
+/***/ "lodash":
+/*!*************************!*\
+  !*** external "lodash" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("lodash");
 
 /***/ })
 

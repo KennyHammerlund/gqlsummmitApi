@@ -1,26 +1,17 @@
+import { importSchema } from "graphql-import";
 import { ApolloServer, gql } from "apollo-server";
+import _ from "lodash";
+
+import * as resolvers from "./graphs/resolvers";
+
+const typeDefs = importSchema("./src/graphs/schema.graphql");
 
 // not required but can be useful if you run multiple servers.
 const PORT = 2999;
 
-// The GraphQL schema
-const typeDefs = gql`
-  type Query {
-    "A simple type for getting started!"
-    hello: String
-  }
-`;
-
-// A map of functions which return data for the schema.
-const resolvers = {
-  Query: {
-    hello: () => "world"
-  }
-};
-
 const server = new ApolloServer({
   typeDefs,
-  resolvers
+  resolvers: _.reduce(resolvers, (prev, next) => _.merge(prev, next))
 });
 
 // Start accepting connections.
