@@ -1,2 +1,3 @@
-export { default as uploadRes } from "./upload/resolvers";
-export { default as application } from "./upload/resolvers";
+export { default as game } from "./game/resolvers";
+export { default as application } from "./application/resolvers";
+export { default as delay } from "./delay/resolvers";

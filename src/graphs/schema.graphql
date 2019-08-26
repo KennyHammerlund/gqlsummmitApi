@@ -1,5 +1,9 @@
 scalar Date
 scalar DateTime
 
-# import Query.* from 'upload/schema.graphql'
+# import Query.* from 'game/schema.graphql'
 # import Query.* from 'application/schema.graphql'
+# import Query.* from 'delay/schema.graphql'
+
+# import Mutation.* from 'game/schema.graphql'
+# import Mutation.* from 'delay/schema.graphql'

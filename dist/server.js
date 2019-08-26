@@ -86,29 +86,21 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/graphs/resolvers.js":
-/*!*********************************!*\
-  !*** ./src/graphs/resolvers.js ***!
-  \*********************************/
-/*! exports provided: uploadRes, application */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./settings.json":
+/*!***********************!*\
+  !*** ./settings.json ***!
+  \***********************/
+/*! exports provided: firebase, default */
+/***/ (function(module) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _upload_resolvers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./upload/resolvers */ "./src/graphs/upload/resolvers.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "uploadRes", function() { return _upload_resolvers__WEBPACK_IMPORTED_MODULE_0__["default"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "application", function() { return _upload_resolvers__WEBPACK_IMPORTED_MODULE_0__["default"]; });
-
-
-
+module.exports = JSON.parse("{\"firebase\":{\"apiKey\":\"AIzaSyAKpZBvjSfci152yGOKOJo-cJvMcnV7-bk\",\"authDomain\":\"summit-example.firebaseapp.com\",\"databaseURL\":\"https://summit-example.firebaseio.com\",\"projectId\":\"summit-example\",\"storageBucket\":\"summit-example.appspot.com\"}}");
 
 /***/ }),
 
-/***/ "./src/graphs/upload/resolvers.js":
-/*!****************************************!*\
-  !*** ./src/graphs/upload/resolvers.js ***!
-  \****************************************/
+/***/ "./src/graphs/application/resolvers.js":
+/*!*********************************************!*\
+  !*** ./src/graphs/application/resolvers.js ***!
+  \*********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -125,7 +117,7 @@ var _this = undefined;
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   Query: {
-    application: function () {
+    summitUpload: function () {
       var _ref = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(obj, _ref2, ctx) {
         var input = _ref2.input;
         return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
@@ -144,12 +136,235 @@ var _this = undefined;
         }, _callee, _this);
       }));
 
-      return function application(_x, _x2, _x3) {
+      return function summitUpload(_x, _x2, _x3) {
         return _ref.apply(this, arguments);
       };
     }()
   }
 });
+
+/***/ }),
+
+/***/ "./src/graphs/delay/resolvers.js":
+/*!***************************************!*\
+  !*** ./src/graphs/delay/resolvers.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _utils_firebase__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/firebase */ "./src/utils/firebase.js");
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  Query: {
+    delay: function delay(obj) {
+      var docRef = _utils_firebase__WEBPACK_IMPORTED_MODULE_0__["default"].ref("delay");
+      return docRef.once("value").then(function (snap) {
+        return snap.val();
+      });
+    }
+  },
+  Mutation: {
+    setDelay: function setDelay(obj, _ref) {
+      var delay = _ref.delay;
+
+      var docRef = _utils_firebase__WEBPACK_IMPORTED_MODULE_0__["default"].ref("delay");
+      docRef.set(delay);
+      return delay;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./src/graphs/game/resolvers.js":
+/*!**************************************!*\
+  !*** ./src/graphs/game/resolvers.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! babel-runtime/helpers/extends */ "babel-runtime/helpers/extends");
+/* harmony import */ var babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! babel-runtime/core-js/object/keys */ "babel-runtime/core-js/object/keys");
+/* harmony import */ var babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! babel-runtime/core-js/promise */ "babel-runtime/core-js/promise");
+/* harmony import */ var babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! babel-runtime/regenerator */ "babel-runtime/regenerator");
+/* harmony import */ var babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! babel-runtime/helpers/asyncToGenerator */ "babel-runtime/helpers/asyncToGenerator");
+/* harmony import */ var babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _utils_firebase__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/firebase */ "./src/utils/firebase.js");
+
+
+
+
+
+
+var _this = undefined;
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  Query: {
+    application: function () {
+      var _ref = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee(obj, _ref2, ctx) {
+        var input = _ref2.input;
+        return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                return _context.abrupt("return", {
+                  online: true
+                });
+
+              case 1:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, _this);
+      }));
+
+      return function application(_x, _x2, _x3) {
+        return _ref.apply(this, arguments);
+      };
+    }(),
+    game: function () {
+      var _ref3 = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee2(obj, _ref4) {
+        var id = _ref4.id;
+        var delayRef, delay;
+        return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                delayRef = _utils_firebase__WEBPACK_IMPORTED_MODULE_5__["default"].ref("delay");
+                _context2.next = 3;
+                return delayRef.once("value").then(function (snap) {
+                  return snap.val();
+                });
+
+              case 3:
+                delay = _context2.sent;
+
+                console.log("*--delay", delay);
+                return _context2.abrupt("return", new babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_2___default.a(function (res, rej) {
+                  var ref = _utils_firebase__WEBPACK_IMPORTED_MODULE_5__["default"].ref("games").child(id);
+                  ref.once("value").then(function (snap) {
+                    var snapVal = snap.val();
+                    var keys = babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(snapVal).filter(function (k) {
+                      return k !== "name";
+                    });
+                    res({ name: snapVal.name, actionIds: keys, gameId: id });
+                  });
+                }));
+
+              case 6:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, _this);
+      }));
+
+      return function game(_x4, _x5) {
+        return _ref3.apply(this, arguments);
+      };
+    }(),
+    games: function games(obj) {
+      var ref = _utils_firebase__WEBPACK_IMPORTED_MODULE_5__["default"].ref("games");
+      return ref.once("value").then(function (snap) {
+        var snapVal = snap.val();
+        return babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(snapVal).map(function (key) {
+          return babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
+            id: key
+          }, snapVal[key]);
+        });
+      });
+    }
+  },
+  Game: {
+    actions: function actions(obj) {
+      if (!obj.actionIds) return null;
+      var ref = _utils_firebase__WEBPACK_IMPORTED_MODULE_5__["default"].ref("games").child(obj.gameId);
+      return ref.once("value").then(function (snap) {
+        var snapVal = snap.val();
+        var gameArr = babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(snapVal).map(function (key) {
+          return babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
+            id: key
+          }, snapVal[key]);
+        });
+
+        return gameArr.filter(function (action) {
+          return obj.actionIds.includes(action.id);
+        });
+      });
+    }
+  },
+  Mutation: {
+    addGameAction: function addGameAction(obj, _ref5) {
+      var input = _ref5.input;
+      var value = input.value,
+          type = input.type,
+          game = input.game;
+
+      var docRef = _utils_firebase__WEBPACK_IMPORTED_MODULE_5__["default"].ref("games");
+      if (game) {
+        docRef.child(game).push({
+          type: type,
+          value: value
+        });
+      } else {
+        var gameRef = docRef.push();
+        gameRef.push({
+          type: type,
+          value: value
+        });
+      }
+    },
+    addGame: function addGame(obj, _ref6) {
+      var input = _ref6.input;
+
+      var docRef = _utils_firebase__WEBPACK_IMPORTED_MODULE_5__["default"].ref("games");
+      var newItem = docRef.push({
+        name: input.name
+      });
+
+      return {
+        name: input.name,
+        id: newItem.key
+      };
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./src/graphs/resolvers.js":
+/*!*********************************!*\
+  !*** ./src/graphs/resolvers.js ***!
+  \*********************************/
+/*! exports provided: game, application, delay */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _game_resolvers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./game/resolvers */ "./src/graphs/game/resolvers.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "game", function() { return _game_resolvers__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _application_resolvers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./application/resolvers */ "./src/graphs/application/resolvers.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "application", function() { return _application_resolvers__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+/* harmony import */ var _delay_resolvers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./delay/resolvers */ "./src/graphs/delay/resolvers.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "delay", function() { return _delay_resolvers__WEBPACK_IMPORTED_MODULE_2__["default"]; });
+
+
+
+
 
 /***/ }),
 
@@ -210,6 +425,34 @@ server.listen({ port: PORT }).then(function (_ref) {
 
 /***/ }),
 
+/***/ "./src/utils/firebase.js":
+/*!*******************************!*\
+  !*** ./src/utils/firebase.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var firebase_admin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! firebase-admin */ "firebase-admin");
+/* harmony import */ var firebase_admin__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(firebase_admin__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _settings_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../settings.json */ "./settings.json");
+var _settings_json__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../settings.json */ "./settings.json", 1);
+/* harmony import */ var firebase_database__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! firebase/database */ "firebase/database");
+/* harmony import */ var firebase_database__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(firebase_database__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! firebase */ "firebase");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+
+firebase__WEBPACK_IMPORTED_MODULE_3___default.a.initializeApp(_settings_json__WEBPACK_IMPORTED_MODULE_1__.firebase);
+
+/* harmony default export */ __webpack_exports__["default"] = (firebase__WEBPACK_IMPORTED_MODULE_3___default.a.database());
+
+/***/ }),
+
 /***/ "apollo-server":
 /*!********************************!*\
   !*** external "apollo-server" ***!
@@ -218,6 +461,28 @@ server.listen({ port: PORT }).then(function (_ref) {
 /***/ (function(module, exports) {
 
 module.exports = require("apollo-server");
+
+/***/ }),
+
+/***/ "babel-runtime/core-js/object/keys":
+/*!****************************************************!*\
+  !*** external "babel-runtime/core-js/object/keys" ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("babel-runtime/core-js/object/keys");
+
+/***/ }),
+
+/***/ "babel-runtime/core-js/promise":
+/*!************************************************!*\
+  !*** external "babel-runtime/core-js/promise" ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("babel-runtime/core-js/promise");
 
 /***/ }),
 
@@ -232,6 +497,17 @@ module.exports = require("babel-runtime/helpers/asyncToGenerator");
 
 /***/ }),
 
+/***/ "babel-runtime/helpers/extends":
+/*!************************************************!*\
+  !*** external "babel-runtime/helpers/extends" ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("babel-runtime/helpers/extends");
+
+/***/ }),
+
 /***/ "babel-runtime/regenerator":
 /*!********************************************!*\
   !*** external "babel-runtime/regenerator" ***!
@@ -240,6 +516,39 @@ module.exports = require("babel-runtime/helpers/asyncToGenerator");
 /***/ (function(module, exports) {
 
 module.exports = require("babel-runtime/regenerator");
+
+/***/ }),
+
+/***/ "firebase":
+/*!***************************!*\
+  !*** external "firebase" ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("firebase");
+
+/***/ }),
+
+/***/ "firebase-admin":
+/*!*********************************!*\
+  !*** external "firebase-admin" ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("firebase-admin");
+
+/***/ }),
+
+/***/ "firebase/database":
+/*!************************************!*\
+  !*** external "firebase/database" ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("firebase/database");
 
 /***/ }),
 
