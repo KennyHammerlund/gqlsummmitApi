@@ -8,7 +8,7 @@ import * as resolvers from "./graphs/resolvers";
 const typeDefs = importSchema("./src/graphs/schema.graphql");
 
 // not required but can be useful if you run multiple servers.
-const PORT = 2999;
+const PORT = process.env.PORT || 2999;
 
 const server = new ApolloServer({
   typeDefs,
