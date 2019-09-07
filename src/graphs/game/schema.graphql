@@ -1,8 +1,45 @@
 type Query {
-  "Delay in seconds"
-  delay: Int
+  application: Application
+  game(id: String): Game
+  games: [Game]!
 }
 
 type Mutation {
-  setDelay(delay: Int!): Int
+  addGameAction(input: GameActionInput): [GameAction]
+  addGame(input: AddGameInput): Game
+}
+
+type Game {
+  id: String
+  name: String
+  actions: [GameAction]
+}
+
+type GameAction {
+  id: String
+  type: GameActionType
+  value: Int
+  timeStamp: Int
+}
+
+input GameActionInput {
+  type: GameActionType!
+  value: Int!
+  gameId: String!
+  timeStamp: Int!
+}
+
+input AddGameInput {
+  name: String!
+}
+
+type Application {
+  online: Boolean
+}
+
+enum GameActionType {
+  TOUCHDOWN
+  SAFETY
+  EXTRAPOINT
+  FIELD_GOAL
 }

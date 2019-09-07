@@ -1,4 +1,17 @@
-import db from "../../utils/firebase";
+import { ApolloError } from "apollo-server";
+const addDelay = async (ref, callback) => {
+  const delayRef = ref.child("delay");
+  const delay = await delayRef.once("value").then(snap => snap.val());
+  return new Promise((res, rej) => {
+    setTimeout(
+      () =>
+        callback()
+          .then(res)
+          .catch(rej),
+      delay * 1000
+    );
+  });
+};
 
 export default {
   Query: {
@@ -7,35 +20,31 @@ export default {
         online: true
       };
     },
-    game: async (obj, { id }) => {
-      const delayRef = db.ref("delay");
-      const delay = await delayRef.once("value").then(snap => snap.val());
-      console.log(`*--delay`, delay);
-      return new Promise((res, rej) => {
-        const ref = db.ref("games").child(id);
-        ref.once("value").then(snap => {
-          const snapVal = snap.val();
-          const keys = Object.keys(snapVal).filter(k => k !== "name");
-          res({ name: snapVal.name, actionIds: keys, gameId: id });
-        });
-      });
+    game: async (obj, { id }, { ref }) => {
+      const gameRef = ref.child("games").child(id);
+
+      const snap = await gameRef.once("value");
+      const snapVal = snap.val();
+      const keys = Object.keys(snapVal).filter(k => k !== "name");
+      return { name: snapVal.name, actionIds: keys, gameId: id };
     },
-    games: obj => {
-      const ref = db.ref("games");
-      return ref.once("value").then(snap => {
-        const snapVal = snap.val();
-        return Object.keys(snapVal).map(key => ({
-          id: key,
-          ...snapVal[key]
-        }));
-      });
+    games: async (obj, arg, { ref }) => {
+      const gameRef = ref.child("games");
+      const snap = await gameRef.once("value");
+      const snapVal = snap.val();
+      console.log(`*--snapVal`, snapVal);
+      if (!snapVal) return [];
+      return Object.keys(snapVal).map(key => ({
+        id: key,
+        ...snapVal[key]
+      }));
     }
   },
   Game: {
-    actions: obj => {
+    actions: (obj, arg, { ref }) => {
       if (!obj.actionIds) return null;
-      const ref = db.ref("games").child(obj.gameId);
-      return ref.once("value").then(snap => {
+      const gameRef = ref.child("games").child(obj.gameId);
+      return gameRef.once("value").then(snap => {
         const snapVal = snap.val();
         const gameArr = Object.keys(snapVal).map(key => ({
           id: key,
@@ -47,32 +56,46 @@ export default {
     }
   },
   Mutation: {
-    addGameAction: (obj, { input }) => {
-      const { value, type, game } = input;
-      let docRef = db.ref("games");
-      if (game) {
-        docRef.child(game).push({
+    addGameAction: (obj, { input }, { ref }) => {
+      const { value, type, gameId, timeStamp } = input;
+      let docRef = ref
+        .child("games")
+        .child(gameId)
+        .child("actions");
+      return addDelay(ref, async () => {
+        const newRef = await docRef.push({
           type,
-          value
+          value,
+          timeStamp
         });
-      } else {
-        const gameRef = docRef.push();
-        gameRef.push({
-          type,
-          value
-        });
-      }
+
+        const snap = await docRef.once("value");
+        const actions = snap.val();
+        return Object.keys(actions).map(k => ({ id: k, ...actions[k] }));
+      });
     },
-    addGame: (obj, { input }) => {
-      let docRef = db.ref("games");
+    addGame: async (obj, { input }, { ref }) => {
+      let docRef = ref.child("games");
+
+      const snap = await docRef.once("value");
+      const games = snap.val();
+      Object.keys(games).map(k => {
+        if (games[k].name === input.name) {
+          console.log(`*--match`, games[k]);
+          throw new ApolloError(
+            "There is already a game with this name",
+            "NO_DUPLICATE"
+          );
+        }
+      });
+
       const newItem = docRef.push({
         name: input.name
       });
-
-      return {
+      return addDelay(ref, async () => ({
         name: input.name,
         id: newItem.key
-      };
+      }));
     }
   }
 };

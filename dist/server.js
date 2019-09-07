@@ -159,18 +159,21 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   Query: {
-    delay: function delay(obj) {
-      var docRef = _utils_firebase__WEBPACK_IMPORTED_MODULE_0__["default"].ref("delay");
+    delay: function delay(obj, arg, _ref) {
+      var ref = _ref.ref;
+
+      var docRef = ref.child("delay");
       return docRef.once("value").then(function (snap) {
         return snap.val();
       });
     }
   },
   Mutation: {
-    setDelay: function setDelay(obj, _ref) {
-      var delay = _ref.delay;
+    setDelay: function setDelay(obj, _ref2, _ref3) {
+      var delay = _ref2.delay;
+      var ref = _ref3.ref;
 
-      var docRef = _utils_firebase__WEBPACK_IMPORTED_MODULE_0__["default"].ref("delay");
+      var docRef = ref.child("delay");
       docRef.set(delay);
       return delay;
     }
@@ -192,13 +195,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! babel-runtime/core-js/object/keys */ "babel-runtime/core-js/object/keys");
 /* harmony import */ var babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! babel-runtime/core-js/promise */ "babel-runtime/core-js/promise");
-/* harmony import */ var babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! babel-runtime/regenerator */ "babel-runtime/regenerator");
-/* harmony import */ var babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! babel-runtime/regenerator */ "babel-runtime/regenerator");
+/* harmony import */ var babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! babel-runtime/core-js/promise */ "babel-runtime/core-js/promise");
+/* harmony import */ var babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! babel-runtime/helpers/asyncToGenerator */ "babel-runtime/helpers/asyncToGenerator");
 /* harmony import */ var babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _utils_firebase__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/firebase */ "./src/utils/firebase.js");
+/* harmony import */ var apollo_server__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! apollo-server */ "apollo-server");
+/* harmony import */ var apollo_server__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(apollo_server__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
@@ -208,62 +212,54 @@ __webpack_require__.r(__webpack_exports__);
 var _this = undefined;
 
 
+var addDelay = function () {
+  var _ref = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee(ref, callback) {
+    var delayRef, delay;
+    return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            delayRef = ref.child("delay");
+            _context.next = 3;
+            return delayRef.once("value").then(function (snap) {
+              return snap.val();
+            });
+
+          case 3:
+            delay = _context.sent;
+            return _context.abrupt("return", new babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_3___default.a(function (res, rej) {
+              setTimeout(function () {
+                return callback().then(res).catch(rej);
+              }, delay * 1000);
+            }));
+
+          case 5:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, _this);
+  }));
+
+  return function addDelay(_x, _x2) {
+    return _ref.apply(this, arguments);
+  };
+}();
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   Query: {
     application: function () {
-      var _ref = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee(obj, _ref2, ctx) {
-        var input = _ref2.input;
-        return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee$(_context) {
+      var _ref2 = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee2(obj, _ref3, ctx) {
+        var input = _ref3.input;
+        return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
-                return _context.abrupt("return", {
+                return _context2.abrupt("return", {
                   online: true
                 });
 
               case 1:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, _this);
-      }));
-
-      return function application(_x, _x2, _x3) {
-        return _ref.apply(this, arguments);
-      };
-    }(),
-    game: function () {
-      var _ref3 = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee2(obj, _ref4) {
-        var id = _ref4.id;
-        var delayRef, delay;
-        return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                delayRef = _utils_firebase__WEBPACK_IMPORTED_MODULE_5__["default"].ref("delay");
-                _context2.next = 3;
-                return delayRef.once("value").then(function (snap) {
-                  return snap.val();
-                });
-
-              case 3:
-                delay = _context2.sent;
-
-                console.log("*--delay", delay);
-                return _context2.abrupt("return", new babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_2___default.a(function (res, rej) {
-                  var ref = _utils_firebase__WEBPACK_IMPORTED_MODULE_5__["default"].ref("games").child(id);
-                  ref.once("value").then(function (snap) {
-                    var snapVal = snap.val();
-                    var keys = babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(snapVal).filter(function (k) {
-                      return k !== "name";
-                    });
-                    res({ name: snapVal.name, actionIds: keys, gameId: id });
-                  });
-                }));
-
-              case 6:
               case "end":
                 return _context2.stop();
             }
@@ -271,27 +267,95 @@ var _this = undefined;
         }, _callee2, _this);
       }));
 
-      return function game(_x4, _x5) {
-        return _ref3.apply(this, arguments);
+      return function application(_x3, _x4, _x5) {
+        return _ref2.apply(this, arguments);
       };
     }(),
-    games: function games(obj) {
-      var ref = _utils_firebase__WEBPACK_IMPORTED_MODULE_5__["default"].ref("games");
-      return ref.once("value").then(function (snap) {
-        var snapVal = snap.val();
-        return babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(snapVal).map(function (key) {
-          return babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
-            id: key
-          }, snapVal[key]);
-        });
-      });
-    }
+    game: function () {
+      var _ref4 = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee3(obj, _ref5, _ref6) {
+        var id = _ref5.id;
+        var ref = _ref6.ref;
+        var gameRef, snap, snapVal, keys;
+        return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                gameRef = ref.child("games").child(id);
+                _context3.next = 3;
+                return gameRef.once("value");
+
+              case 3:
+                snap = _context3.sent;
+                snapVal = snap.val();
+                keys = babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(snapVal).filter(function (k) {
+                  return k !== "name";
+                });
+                return _context3.abrupt("return", { name: snapVal.name, actionIds: keys, gameId: id });
+
+              case 7:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, _this);
+      }));
+
+      return function game(_x6, _x7, _x8) {
+        return _ref4.apply(this, arguments);
+      };
+    }(),
+    games: function () {
+      var _ref7 = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee4(obj, arg, _ref8) {
+        var ref = _ref8.ref;
+        var gameRef, snap, snapVal;
+        return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                gameRef = ref.child("games");
+                _context4.next = 3;
+                return gameRef.once("value");
+
+              case 3:
+                snap = _context4.sent;
+                snapVal = snap.val();
+
+                console.log("*--snapVal", snapVal);
+
+                if (snapVal) {
+                  _context4.next = 8;
+                  break;
+                }
+
+                return _context4.abrupt("return", []);
+
+              case 8:
+                return _context4.abrupt("return", babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(snapVal).map(function (key) {
+                  return babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
+                    id: key
+                  }, snapVal[key]);
+                }));
+
+              case 9:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, _this);
+      }));
+
+      return function games(_x9, _x10, _x11) {
+        return _ref7.apply(this, arguments);
+      };
+    }()
   },
   Game: {
-    actions: function actions(obj) {
+    actions: function actions(obj, arg, _ref9) {
+      var ref = _ref9.ref;
+
       if (!obj.actionIds) return null;
-      var ref = _utils_firebase__WEBPACK_IMPORTED_MODULE_5__["default"].ref("games").child(obj.gameId);
-      return ref.once("value").then(function (snap) {
+      var gameRef = ref.child("games").child(obj.gameId);
+      return gameRef.once("value").then(function (snap) {
         var snapVal = snap.val();
         var gameArr = babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(snapVal).map(function (key) {
           return babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
@@ -306,39 +370,105 @@ var _this = undefined;
     }
   },
   Mutation: {
-    addGameAction: function addGameAction(obj, _ref5) {
-      var input = _ref5.input;
+    addGameAction: function addGameAction(obj, _ref10, _ref11) {
+      var input = _ref10.input;
+      var ref = _ref11.ref;
       var value = input.value,
           type = input.type,
-          game = input.game;
+          gameId = input.gameId,
+          timeStamp = input.timeStamp;
 
-      var docRef = _utils_firebase__WEBPACK_IMPORTED_MODULE_5__["default"].ref("games");
-      if (game) {
-        docRef.child(game).push({
-          type: type,
-          value: value
-        });
-      } else {
-        var gameRef = docRef.push();
-        gameRef.push({
-          type: type,
-          value: value
-        });
-      }
+      var docRef = ref.child("games").child(gameId).child("actions");
+      return addDelay(ref, babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee5() {
+        var newRef, snap, actions;
+        return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _context5.next = 2;
+                return docRef.push({
+                  type: type,
+                  value: value,
+                  timeStamp: timeStamp
+                });
+
+              case 2:
+                newRef = _context5.sent;
+                _context5.next = 5;
+                return docRef.once("value");
+
+              case 5:
+                snap = _context5.sent;
+                actions = snap.val();
+                return _context5.abrupt("return", babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(actions).map(function (k) {
+                  return babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({ id: k }, actions[k]);
+                }));
+
+              case 8:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5, _this);
+      })));
     },
-    addGame: function addGame(obj, _ref6) {
-      var input = _ref6.input;
+    addGame: function () {
+      var _ref13 = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee7(obj, _ref14, _ref15) {
+        var input = _ref14.input;
+        var ref = _ref15.ref;
+        var docRef, snap, games, newItem;
+        return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                docRef = ref.child("games");
+                _context7.next = 3;
+                return docRef.once("value");
 
-      var docRef = _utils_firebase__WEBPACK_IMPORTED_MODULE_5__["default"].ref("games");
-      var newItem = docRef.push({
-        name: input.name
-      });
+              case 3:
+                snap = _context7.sent;
+                games = snap.val();
 
-      return {
-        name: input.name,
-        id: newItem.key
+                babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(games).map(function (k) {
+                  if (games[k].name === input.name) {
+                    console.log("*--match", games[k]);
+                    throw new apollo_server__WEBPACK_IMPORTED_MODULE_5__["ApolloError"]("There is already a game with this name", "NO_DUPLICATE");
+                  }
+                });
+
+                newItem = docRef.push({
+                  name: input.name
+                });
+                return _context7.abrupt("return", addDelay(ref, babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee6() {
+                  return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee6$(_context6) {
+                    while (1) {
+                      switch (_context6.prev = _context6.next) {
+                        case 0:
+                          return _context6.abrupt("return", {
+                            name: input.name,
+                            id: newItem.key
+                          });
+
+                        case 1:
+                        case "end":
+                          return _context6.stop();
+                      }
+                    }
+                  }, _callee6, _this);
+                }))));
+
+              case 8:
+              case "end":
+                return _context7.stop();
+            }
+          }
+        }, _callee7, _this);
+      }));
+
+      return function addGame(_x12, _x13, _x14) {
+        return _ref13.apply(this, arguments);
       };
-    }
+    }()
   }
 });
 
@@ -391,29 +521,47 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var graphql_import__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-import */ "graphql-import");
-/* harmony import */ var graphql_import__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_import__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var apollo_server__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! apollo-server */ "apollo-server");
-/* harmony import */ var apollo_server__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(apollo_server__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash */ "lodash");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _graphs_resolvers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./graphs/resolvers */ "./src/graphs/resolvers.js");
+/* harmony import */ var babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! babel-runtime/helpers/classCallCheck */ "babel-runtime/helpers/classCallCheck");
+/* harmony import */ var babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! babel-runtime/helpers/createClass */ "babel-runtime/helpers/createClass");
+/* harmony import */ var babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var graphql_import__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! graphql-import */ "graphql-import");
+/* harmony import */ var graphql_import__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphql_import__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var apollo_server__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! apollo-server */ "apollo-server");
+/* harmony import */ var apollo_server__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(apollo_server__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash */ "lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _utils_firebase__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./utils/firebase */ "./src/utils/firebase.js");
+/* harmony import */ var _graphs_resolvers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./graphs/resolvers */ "./src/graphs/resolvers.js");
 
 
 
 
 
 
-var typeDefs = Object(graphql_import__WEBPACK_IMPORTED_MODULE_0__["importSchema"])("./src/graphs/schema.graphql");
+
+
+
+var typeDefs = Object(graphql_import__WEBPACK_IMPORTED_MODULE_2__["importSchema"])("./src/graphs/schema.graphql");
 
 // not required but can be useful if you run multiple servers.
 var PORT = 2999;
 
-var server = new apollo_server__WEBPACK_IMPORTED_MODULE_1__["ApolloServer"]({
+var server = new apollo_server__WEBPACK_IMPORTED_MODULE_3__["ApolloServer"]({
   typeDefs: typeDefs,
-  resolvers: lodash__WEBPACK_IMPORTED_MODULE_2___default.a.reduce(_graphs_resolvers__WEBPACK_IMPORTED_MODULE_3__, function (prev, next) {
-    return lodash__WEBPACK_IMPORTED_MODULE_2___default.a.merge(prev, next);
-  })
+  context: function context(req) {
+    return new Context(req);
+  },
+  resolvers: lodash__WEBPACK_IMPORTED_MODULE_4___default.a.reduce(_graphs_resolvers__WEBPACK_IMPORTED_MODULE_6__, function (prev, next) {
+    return lodash__WEBPACK_IMPORTED_MODULE_4___default.a.merge(prev, next);
+  }),
+  formatError: function formatError(err) {
+    console.log("*--err", err);
+    if (err.message.startsWith("Context creation failed: ")) {
+      return new apollo_server__WEBPACK_IMPORTED_MODULE_3__["AuthenticationError"](err.message.replace("Context creation failed: ", ""));
+    }
+    return err;
+  }
 });
 
 // Start accepting connections.
@@ -422,6 +570,34 @@ server.listen({ port: PORT }).then(function (_ref) {
 
   console.log("\uD83D\uDE80 Apollo server running on port " + url);
 });
+
+var Context = function () {
+  function Context(request) {
+    babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, Context);
+
+    var headers = request.req ? request.req.headers : request.connection.context;
+    this.email = headers && headers.email;
+    this.request = request.req;
+    this.validate(headers);
+    var strippedEmail = headers.email.replace(/[.\#\$]/g, "--");
+    this.ref = _utils_firebase__WEBPACK_IMPORTED_MODULE_5__["default"].ref(strippedEmail);
+  }
+
+  babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(Context, [{
+    key: "validate",
+    value: function validate(headers) {
+      if (!headers || !headers.email) {
+        throw new apollo_server__WEBPACK_IMPORTED_MODULE_3__["AuthenticationError"]("No Email Provided");
+      }
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if (!re.test(String(headers.email).toLowerCase())) {
+        throw new apollo_server__WEBPACK_IMPORTED_MODULE_3__["AuthenticationError"]("Email Malformed, must be a valid email");
+      }
+    }
+  }]);
+
+  return Context;
+}();
 
 /***/ }),
 
@@ -494,6 +670,28 @@ module.exports = require("babel-runtime/core-js/promise");
 /***/ (function(module, exports) {
 
 module.exports = require("babel-runtime/helpers/asyncToGenerator");
+
+/***/ }),
+
+/***/ "babel-runtime/helpers/classCallCheck":
+/*!*******************************************************!*\
+  !*** external "babel-runtime/helpers/classCallCheck" ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("babel-runtime/helpers/classCallCheck");
+
+/***/ }),
+
+/***/ "babel-runtime/helpers/createClass":
+/*!****************************************************!*\
+  !*** external "babel-runtime/helpers/createClass" ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("babel-runtime/helpers/createClass");
 
 /***/ }),
 
