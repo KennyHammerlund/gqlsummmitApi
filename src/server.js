@@ -15,14 +15,14 @@ const server = new ApolloServer({
   context: req => new Context(req),
   resolvers: _.reduce(resolvers, (prev, next) => _.merge(prev, next)),
   formatError: err => {
-    console.log(`*--err`, err);
     if (err.message.startsWith("Context creation failed: ")) {
       return new AuthenticationError(
         err.message.replace("Context creation failed: ", "")
       );
     }
     return err;
-  }
+  },
+  playground: true
 });
 
 // Start accepting connections.
