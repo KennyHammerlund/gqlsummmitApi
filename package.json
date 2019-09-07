@@ -7,9 +7,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "echo 'use dev or dev-win'",
     "dev-win": "webpack --mode development --config webpack.local.js",
-    "dev": "webpack --mode development --config webpack.local.js"
+    "dev": "webpack --mode development --config webpack.local.js",
+    "build": "rm -rf dist && webpack --mode production --config webpack.config.js",
+    "start": "node ./dist/server.js"
   },
   "dependencies": {
     "@babel/core": "^7.5.5",
