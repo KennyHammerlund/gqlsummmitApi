@@ -25,13 +25,13 @@ export default {
         online: true
       };
     },
-    game: async (obj, { id }, { asyncRef, email }) => {
+    game: async (obj, { id }, { asyncRef, strippedId }) => {
       const ref = await asyncRef;
       if (!ref) return refError;
       const snap = await ref.once("value");
       const snapVal = snap.val();
       const keys = Object.keys(snapVal).filter(k => k !== "name");
-      return { delay: snapVal.delay, actionIds: keys, gameId: email };
+      return { ...snapVal, actionIds: keys, gameId: strippedId };
     }
   },
   Game: {

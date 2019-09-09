@@ -358,7 +358,7 @@ var refError = new apollo_server__WEBPACK_IMPORTED_MODULE_5__["ApolloError"]("no
       var _ref4 = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee3(obj, _ref5, _ref6) {
         var id = _ref5.id;
         var asyncRef = _ref6.asyncRef,
-            email = _ref6.email;
+            strippedId = _ref6.strippedId;
         var ref, snap, snapVal, keys;
         return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee3$(_context3) {
           while (1) {
@@ -387,7 +387,7 @@ var refError = new apollo_server__WEBPACK_IMPORTED_MODULE_5__["ApolloError"]("no
                 keys = babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(snapVal).filter(function (k) {
                   return k !== "name";
                 });
-                return _context3.abrupt("return", { delay: snapVal.delay, actionIds: keys, gameId: email });
+                return _context3.abrupt("return", babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({}, snapVal, { actionIds: keys, gameId: strippedId }));
 
               case 11:
               case "end":

@@ -12,6 +12,7 @@ type Mutation {
 type Game {
   id: String
   delay: Int
+  name: String
   actions: [GameAction]
 }
 
