@@ -37,18 +37,18 @@ class Context {
       : request.connection.context;
     this.email = headers && headers.email;
     this.request = request.req;
-    this.validate(headers);
-    const strippedEmail = headers.email.replace(/[.\#\$]/g, "--");
-    this.ref = db.ref(strippedEmail);
+    const strippedEmail = this.validate(headers).replace(/[.\#\$]/g, "--");
+    this.ref = strippedEmail !== "" ? db.ref(strippedEmail) : null;
   }
 
   validate(headers) {
     if (!headers || !headers.email) {
-      throw new AuthenticationError("No Email Provided");
+      return "";
     }
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!re.test(String(headers.email).toLowerCase())) {
-      throw new AuthenticationError("Email Malformed, must be a valid email");
+      return "";
     }
+    return headers.email;
   }
 }

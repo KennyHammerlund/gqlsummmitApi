@@ -1,7 +1,6 @@
 type Query {
   application: Application
-  game(id: String): Game
-  games: [Game]!
+  game: Game
 }
 
 type Mutation {
@@ -11,7 +10,7 @@ type Mutation {
 
 type Game {
   id: String
-  name: String
+  delay: Int
   actions: [GameAction]
 }
 
@@ -20,12 +19,12 @@ type GameAction {
   type: GameActionType
   value: Int
   timeStamp: Int
+  optimistic: Boolean
 }
 
 input GameActionInput {
   type: GameActionType!
   value: Int!
-  gameId: String!
   timeStamp: Int!
 }
 
