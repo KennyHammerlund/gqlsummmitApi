@@ -1,4 +1,7 @@
 import { ApolloError } from "apollo-server";
+import db from "../../utils/firebase";
+import { firestore } from "firebase-admin";
+
 const addDelay = async (ref, callback) => {
   const delayRef = ref.child("delay");
   const delay = await delayRef.once("value").then(snap => snap.val());
@@ -49,6 +52,12 @@ export default {
     }
   },
   Mutation: {
+    clearGame: async (obj, { deviceId }, ctx) => {
+      if (!deviceId) return false;
+      const ref = db.ref(deviceId);
+      const result = await ref.set(firestore.FieldValue.delete());
+      return !!result;
+    },
     addGameAction: async (obj, { input }, { asyncRef }) => {
       const ref = await asyncRef;
       if (!ref) return refError;

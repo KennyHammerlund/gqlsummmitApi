@@ -6,6 +6,7 @@ type Query {
 type Mutation {
   addGameAction(input: GameActionInput): [GameAction]
   addGame(input: AddGameInput): Game
+  clearGame(deviceId: String!): Boolean
 }
 
 type Game {

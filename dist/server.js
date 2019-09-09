@@ -278,6 +278,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var apollo_server__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! apollo-server */ "apollo-server");
 /* harmony import */ var apollo_server__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(apollo_server__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _utils_firebase__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/firebase */ "./src/utils/firebase.js");
+/* harmony import */ var firebase_admin__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! firebase-admin */ "firebase-admin");
+/* harmony import */ var firebase_admin__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(firebase_admin__WEBPACK_IMPORTED_MODULE_7__);
 
 
 
@@ -285,6 +288,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _this = undefined;
+
+
+
 
 
 var addDelay = function () {
@@ -447,38 +453,74 @@ var refError = new apollo_server__WEBPACK_IMPORTED_MODULE_5__["ApolloError"]("no
     }()
   },
   Mutation: {
-    addGameAction: function () {
-      var _ref9 = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee6(obj, _ref10, _ref11) {
-        var input = _ref10.input;
-        var asyncRef = _ref11.asyncRef;
-        var ref, value, type, gameId, timeStamp, docRef;
-        return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee6$(_context6) {
+    clearGame: function () {
+      var _ref9 = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee5(obj, _ref10, ctx) {
+        var deviceId = _ref10.deviceId;
+        var ref, result;
+        return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee5$(_context5) {
           while (1) {
-            switch (_context6.prev = _context6.next) {
+            switch (_context5.prev = _context5.next) {
               case 0:
-                _context6.next = 2;
-                return asyncRef;
-
-              case 2:
-                ref = _context6.sent;
-
-                if (ref) {
-                  _context6.next = 5;
+                if (deviceId) {
+                  _context5.next = 2;
                   break;
                 }
 
-                return _context6.abrupt("return", refError);
+                return _context5.abrupt("return", false);
+
+              case 2:
+                ref = _utils_firebase__WEBPACK_IMPORTED_MODULE_6__["default"].ref(deviceId);
+                _context5.next = 5;
+                return ref.set(firebase_admin__WEBPACK_IMPORTED_MODULE_7__["firestore"].FieldValue.delete());
+
+              case 5:
+                result = _context5.sent;
+                return _context5.abrupt("return", !!result);
+
+              case 7:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5, _this);
+      }));
+
+      return function clearGame(_x12, _x13, _x14) {
+        return _ref9.apply(this, arguments);
+      };
+    }(),
+    addGameAction: function () {
+      var _ref11 = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee7(obj, _ref12, _ref13) {
+        var input = _ref12.input;
+        var asyncRef = _ref13.asyncRef;
+        var ref, value, type, gameId, timeStamp, docRef;
+        return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                _context7.next = 2;
+                return asyncRef;
+
+              case 2:
+                ref = _context7.sent;
+
+                if (ref) {
+                  _context7.next = 5;
+                  break;
+                }
+
+                return _context7.abrupt("return", refError);
 
               case 5:
                 value = input.value, type = input.type, gameId = input.gameId, timeStamp = input.timeStamp;
                 docRef = ref.child("actions");
-                return _context6.abrupt("return", addDelay(ref, babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee5() {
+                return _context7.abrupt("return", addDelay(ref, babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee6() {
                   var newRef, snap, actions;
-                  return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee5$(_context5) {
+                  return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee6$(_context6) {
                     while (1) {
-                      switch (_context5.prev = _context5.next) {
+                      switch (_context6.prev = _context6.next) {
                         case 0:
-                          _context5.next = 2;
+                          _context6.next = 2;
                           return docRef.push({
                             type: type,
                             value: value,
@@ -486,35 +528,35 @@ var refError = new apollo_server__WEBPACK_IMPORTED_MODULE_5__["ApolloError"]("no
                           });
 
                         case 2:
-                          newRef = _context5.sent;
-                          _context5.next = 5;
+                          newRef = _context6.sent;
+                          _context6.next = 5;
                           return docRef.once("value");
 
                         case 5:
-                          snap = _context5.sent;
+                          snap = _context6.sent;
                           actions = snap.val();
-                          return _context5.abrupt("return", babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(actions).map(function (k) {
+                          return _context6.abrupt("return", babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(actions).map(function (k) {
                             return babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({ id: k }, actions[k]);
                           }));
 
                         case 8:
                         case "end":
-                          return _context5.stop();
+                          return _context6.stop();
                       }
                     }
-                  }, _callee5, _this);
+                  }, _callee6, _this);
                 }))));
 
               case 8:
               case "end":
-                return _context6.stop();
+                return _context7.stop();
             }
           }
-        }, _callee6, _this);
+        }, _callee7, _this);
       }));
 
-      return function addGameAction(_x12, _x13, _x14) {
-        return _ref9.apply(this, arguments);
+      return function addGameAction(_x15, _x16, _x17) {
+        return _ref11.apply(this, arguments);
       };
     }()
   }
