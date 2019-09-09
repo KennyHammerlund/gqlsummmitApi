@@ -35,20 +35,38 @@ class Context {
     const headers = request.req
       ? request.req.headers
       : request.connection.context;
-    this.email = headers && headers.email;
+    this.user = headers && headers.user;
     this.request = request.req;
-    const strippedEmail = this.validate(headers).replace(/[.\#\$]/g, "--");
-    this.ref = strippedEmail !== "" ? db.ref(strippedEmail) : null;
+
+    this.strippedId =
+      headers &&
+      headers.deviceid &&
+      this.validate(headers).replace(/[.\#\$]/g, "-");
+  }
+
+  get asyncRef() {
+    if (this.strippedId && this.user) return this.setRef(this.strippedId);
   }
 
   validate(headers) {
-    if (!headers || !headers.email) {
+    if (!headers || !headers.deviceid) {
       return "";
     }
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (!re.test(String(headers.email).toLowerCase())) {
-      return "";
+    return headers.deviceid;
+  }
+
+  async setRef(deviceId) {
+    const isValue = await db
+      .ref()
+      .child(deviceId)
+      .once("value")
+      .then(snap => snap.exists());
+    if (!isValue) {
+      await db
+        .ref()
+        .child(deviceId)
+        .set({ name: this.user, delay: 0 });
     }
-    return headers.email;
+    return db.ref(deviceId);
   }
 }

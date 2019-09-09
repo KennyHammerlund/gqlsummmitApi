@@ -22,7 +22,8 @@ export default {
         online: true
       };
     },
-    game: async (obj, { id }, { ref, email }) => {
+    game: async (obj, { id }, { asyncRef, email }) => {
+      const ref = await asyncRef;
       if (!ref) return refError;
       const snap = await ref.once("value");
       const snapVal = snap.val();
@@ -32,7 +33,9 @@ export default {
   },
   Game: {
     id: obj => obj.gameId,
-    actions: (obj, arg, { ref }) => {
+    actions: async (obj, arg, { asyncRef }) => {
+      const ref = await asyncRef;
+
       if (!ref) return refError;
       const gameRef = ref.child("actions");
       return gameRef.once("value").then(snap => {
@@ -46,7 +49,8 @@ export default {
     }
   },
   Mutation: {
-    addGameAction: (obj, { input }, { ref }) => {
+    addGameAction: async (obj, { input }, { asyncRef }) => {
+      const ref = await asyncRef;
       if (!ref) return refError;
       const { value, type, gameId, timeStamp } = input;
       let docRef = ref.child("actions");
