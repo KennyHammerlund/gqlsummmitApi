@@ -117,7 +117,7 @@ var _this = undefined;
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   Query: {
-    summitUpload: function () {
+    application: function () {
       var _ref = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(obj, _ref2, ctx) {
         var input = _ref2.input;
         return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
@@ -136,120 +136,8 @@ var _this = undefined;
         }, _callee, _this);
       }));
 
-      return function summitUpload(_x, _x2, _x3) {
+      return function application(_x, _x2, _x3) {
         return _ref.apply(this, arguments);
-      };
-    }()
-  }
-});
-
-/***/ }),
-
-/***/ "./src/graphs/delay/resolvers.js":
-/*!***************************************!*\
-  !*** ./src/graphs/delay/resolvers.js ***!
-  \***************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! babel-runtime/regenerator */ "babel-runtime/regenerator");
-/* harmony import */ var babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! babel-runtime/helpers/asyncToGenerator */ "babel-runtime/helpers/asyncToGenerator");
-/* harmony import */ var babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var apollo_server__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! apollo-server */ "apollo-server");
-/* harmony import */ var apollo_server__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(apollo_server__WEBPACK_IMPORTED_MODULE_2__);
-
-
-
-var _this = undefined;
-
-
-
-var refError = new apollo_server__WEBPACK_IMPORTED_MODULE_2__["ApolloError"]("no user/email attached", "EMAIL_ERROR");
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  Query: {
-    delay: function () {
-      var _ref = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(obj, arg, _ref2) {
-        var asyncRef = _ref2.asyncRef;
-        var ref, docRef;
-        return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return asyncRef;
-
-              case 2:
-                ref = _context.sent;
-
-                if (ref) {
-                  _context.next = 5;
-                  break;
-                }
-
-                return _context.abrupt("return", refError);
-
-              case 5:
-                docRef = ref.child("delay");
-                return _context.abrupt("return", docRef.once("value").then(function (snap) {
-                  return snap.val();
-                }));
-
-              case 7:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, _this);
-      }));
-
-      return function delay(_x, _x2, _x3) {
-        return _ref.apply(this, arguments);
-      };
-    }()
-  },
-  Mutation: {
-    setDelay: function () {
-      var _ref3 = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(obj, _ref4, _ref5) {
-        var delay = _ref4.delay;
-        var asyncRef = _ref5.asyncRef;
-        var ref, docRef;
-        return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.next = 2;
-                return asyncRef;
-
-              case 2:
-                ref = _context2.sent;
-
-                if (ref) {
-                  _context2.next = 5;
-                  break;
-                }
-
-                return _context2.abrupt("return", refError);
-
-              case 5:
-                docRef = ref.child("delay");
-
-                docRef.set(delay);
-                return _context2.abrupt("return", delay);
-
-              case 8:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, _this);
-      }));
-
-      return function setDelay(_x4, _x5, _x6) {
-        return _ref3.apply(this, arguments);
       };
     }()
   }
@@ -278,9 +166,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var apollo_server__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! apollo-server */ "apollo-server");
 /* harmony import */ var apollo_server__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(apollo_server__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _utils_firebase__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/firebase */ "./src/utils/firebase.js");
-/* harmony import */ var firebase_admin__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! firebase-admin */ "firebase-admin");
-/* harmony import */ var firebase_admin__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(firebase_admin__WEBPACK_IMPORTED_MODULE_7__);
 
 
 
@@ -288,8 +173,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _this = undefined;
-
-
 
 
 
@@ -330,36 +213,12 @@ var addDelay = function () {
 var refError = new apollo_server__WEBPACK_IMPORTED_MODULE_5__["ApolloError"]("no user/email attached", "EMAIL_ERROR");
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  Query: {
-    application: function () {
-      var _ref2 = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee2(obj, _ref3, ctx) {
+  Mutation: {
+    addGameAction: function () {
+      var _ref2 = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee3(obj, _ref3, _ref4) {
         var input = _ref3.input;
-        return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                return _context2.abrupt("return", {
-                  online: true
-                });
-
-              case 1:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, _this);
-      }));
-
-      return function application(_x3, _x4, _x5) {
-        return _ref2.apply(this, arguments);
-      };
-    }(),
-    game: function () {
-      var _ref4 = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee3(obj, _ref5, _ref6) {
-        var id = _ref5.id;
-        var asyncRef = _ref6.asyncRef,
-            strippedId = _ref6.strippedId;
-        var ref, snap, snapVal, keys;
+        var asyncRef = _ref4.asyncRef;
+        var ref, value, type, timeStamp, docRef;
         return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
@@ -378,149 +237,15 @@ var refError = new apollo_server__WEBPACK_IMPORTED_MODULE_5__["ApolloError"]("no
                 return _context3.abrupt("return", refError);
 
               case 5:
-                _context3.next = 7;
-                return ref.once("value");
-
-              case 7:
-                snap = _context3.sent;
-                snapVal = snap.val();
-                keys = babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(snapVal).filter(function (k) {
-                  return k !== "name";
-                });
-                return _context3.abrupt("return", babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({}, snapVal, { actionIds: keys, gameId: strippedId }));
-
-              case 11:
-              case "end":
-                return _context3.stop();
-            }
-          }
-        }, _callee3, _this);
-      }));
-
-      return function game(_x6, _x7, _x8) {
-        return _ref4.apply(this, arguments);
-      };
-    }()
-  },
-  Game: {
-    id: function id(obj) {
-      return obj.gameId;
-    },
-    actions: function () {
-      var _ref7 = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee4(obj, arg, _ref8) {
-        var asyncRef = _ref8.asyncRef;
-        var ref, gameRef;
-        return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee4$(_context4) {
-          while (1) {
-            switch (_context4.prev = _context4.next) {
-              case 0:
-                _context4.next = 2;
-                return asyncRef;
-
-              case 2:
-                ref = _context4.sent;
-
-                if (ref) {
-                  _context4.next = 5;
-                  break;
-                }
-
-                return _context4.abrupt("return", refError);
-
-              case 5:
-                gameRef = ref.child("actions");
-                return _context4.abrupt("return", gameRef.once("value").then(function (snap) {
-                  var snapVal = snap.val();
-                  return babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(snapVal).map(function (key) {
-                    return babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
-                      id: key,
-                      optimistic: false
-                    }, snapVal[key]);
-                  });
-                }));
-
-              case 7:
-              case "end":
-                return _context4.stop();
-            }
-          }
-        }, _callee4, _this);
-      }));
-
-      return function actions(_x9, _x10, _x11) {
-        return _ref7.apply(this, arguments);
-      };
-    }()
-  },
-  Mutation: {
-    clearGame: function () {
-      var _ref9 = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee5(obj, _ref10, ctx) {
-        var deviceId = _ref10.deviceId;
-        var ref, result;
-        return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee5$(_context5) {
-          while (1) {
-            switch (_context5.prev = _context5.next) {
-              case 0:
-                if (deviceId) {
-                  _context5.next = 2;
-                  break;
-                }
-
-                return _context5.abrupt("return", false);
-
-              case 2:
-                ref = _utils_firebase__WEBPACK_IMPORTED_MODULE_6__["default"].ref(deviceId);
-                _context5.next = 5;
-                return ref.set(firebase_admin__WEBPACK_IMPORTED_MODULE_7__["firestore"].FieldValue.delete());
-
-              case 5:
-                result = _context5.sent;
-                return _context5.abrupt("return", !!result);
-
-              case 7:
-              case "end":
-                return _context5.stop();
-            }
-          }
-        }, _callee5, _this);
-      }));
-
-      return function clearGame(_x12, _x13, _x14) {
-        return _ref9.apply(this, arguments);
-      };
-    }(),
-    addGameAction: function () {
-      var _ref11 = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee7(obj, _ref12, _ref13) {
-        var input = _ref12.input;
-        var asyncRef = _ref13.asyncRef;
-        var ref, value, type, gameId, timeStamp, docRef;
-        return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee7$(_context7) {
-          while (1) {
-            switch (_context7.prev = _context7.next) {
-              case 0:
-                _context7.next = 2;
-                return asyncRef;
-
-              case 2:
-                ref = _context7.sent;
-
-                if (ref) {
-                  _context7.next = 5;
-                  break;
-                }
-
-                return _context7.abrupt("return", refError);
-
-              case 5:
-                value = input.value, type = input.type, gameId = input.gameId, timeStamp = input.timeStamp;
+                value = input.value, type = input.type, timeStamp = input.timeStamp;
                 docRef = ref.child("actions");
-                return _context7.abrupt("return", addDelay(ref, babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee6() {
+                return _context3.abrupt("return", addDelay(ref, babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee2() {
                   var newRef, snap, actions;
-                  return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee6$(_context6) {
+                  return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee2$(_context2) {
                     while (1) {
-                      switch (_context6.prev = _context6.next) {
+                      switch (_context2.prev = _context2.next) {
                         case 0:
-                          _context6.next = 2;
+                          _context2.next = 2;
                           return docRef.push({
                             type: type,
                             value: value,
@@ -528,35 +253,35 @@ var refError = new apollo_server__WEBPACK_IMPORTED_MODULE_5__["ApolloError"]("no
                           });
 
                         case 2:
-                          newRef = _context6.sent;
-                          _context6.next = 5;
+                          newRef = _context2.sent;
+                          _context2.next = 5;
                           return docRef.once("value");
 
                         case 5:
-                          snap = _context6.sent;
+                          snap = _context2.sent;
                           actions = snap.val();
-                          return _context6.abrupt("return", babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(actions).map(function (k) {
+                          return _context2.abrupt("return", babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(actions).map(function (k) {
                             return babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({ id: k }, actions[k]);
                           }));
 
                         case 8:
                         case "end":
-                          return _context6.stop();
+                          return _context2.stop();
                       }
                     }
-                  }, _callee6, _this);
+                  }, _callee2, _this);
                 }))));
 
               case 8:
               case "end":
-                return _context7.stop();
+                return _context3.stop();
             }
           }
-        }, _callee7, _this);
+        }, _callee3, _this);
       }));
 
-      return function addGameAction(_x15, _x16, _x17) {
-        return _ref11.apply(this, arguments);
+      return function addGameAction(_x3, _x4, _x5) {
+        return _ref2.apply(this, arguments);
       };
     }()
   }
@@ -568,7 +293,7 @@ var refError = new apollo_server__WEBPACK_IMPORTED_MODULE_5__["ApolloError"]("no
 /*!*********************************!*\
   !*** ./src/graphs/resolvers.js ***!
   \*********************************/
-/*! exports provided: game, application, delay */
+/*! exports provided: game, application, viewer */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -579,12 +304,190 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _application_resolvers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./application/resolvers */ "./src/graphs/application/resolvers.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "application", function() { return _application_resolvers__WEBPACK_IMPORTED_MODULE_1__["default"]; });
 
-/* harmony import */ var _delay_resolvers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./delay/resolvers */ "./src/graphs/delay/resolvers.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "delay", function() { return _delay_resolvers__WEBPACK_IMPORTED_MODULE_2__["default"]; });
+/* harmony import */ var _viewer_resolvers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./viewer/resolvers */ "./src/graphs/viewer/resolvers.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "viewer", function() { return _viewer_resolvers__WEBPACK_IMPORTED_MODULE_2__["default"]; });
 
 
 
 
+
+/***/ }),
+
+/***/ "./src/graphs/viewer/resolvers.js":
+/*!****************************************!*\
+  !*** ./src/graphs/viewer/resolvers.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! babel-runtime/core-js/promise */ "babel-runtime/core-js/promise");
+/* harmony import */ var babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! babel-runtime/core-js/object/keys */ "babel-runtime/core-js/object/keys");
+/* harmony import */ var babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! babel-runtime/regenerator */ "babel-runtime/regenerator");
+/* harmony import */ var babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! babel-runtime/helpers/extends */ "babel-runtime/helpers/extends");
+/* harmony import */ var babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! babel-runtime/helpers/asyncToGenerator */ "babel-runtime/helpers/asyncToGenerator");
+/* harmony import */ var babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var apollo_server__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! apollo-server */ "apollo-server");
+/* harmony import */ var apollo_server__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(apollo_server__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _utils_firebase__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/firebase */ "./src/utils/firebase.js");
+/* harmony import */ var firebase_admin__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! firebase-admin */ "firebase-admin");
+/* harmony import */ var firebase_admin__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(firebase_admin__WEBPACK_IMPORTED_MODULE_7__);
+
+
+
+
+
+
+var _this = undefined;
+
+
+
+
+
+var refError = new apollo_server__WEBPACK_IMPORTED_MODULE_5__["ApolloError"]("no Ref found", "EMAIL_ERROR");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  Query: {
+    viewer: function () {
+      var _ref = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee(obj, arg, _ref2) {
+        var asyncRef = _ref2.asyncRef,
+            deviceId = _ref2.deviceId;
+        var ref;
+        return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return asyncRef;
+
+              case 2:
+                ref = _context.sent;
+
+                if (ref) {
+                  _context.next = 5;
+                  break;
+                }
+
+                return _context.abrupt("return", refError);
+
+              case 5:
+                return _context.abrupt("return", ref.once("value").then(function (snap) {
+                  return babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_3___default()({ id: deviceId }, snap.val());
+                }));
+
+              case 6:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, _this);
+      }));
+
+      return function viewer(_x, _x2, _x3) {
+        return _ref.apply(this, arguments);
+      };
+    }()
+  },
+  Viewer: {
+    actions: function actions(_ref3) {
+      var _actions = _ref3.actions;
+
+      if (!_actions) return [];
+      return babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(_actions).map(function (k) {
+        return babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_3___default()({ id: k }, _actions[k]);
+      });
+    }
+  },
+  Mutation: {
+    reset: function () {
+      var _ref4 = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee2(obj, _ref5, ctx) {
+        var deviceId = _ref5.deviceId;
+        var ref, result;
+        return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                if (deviceId) {
+                  _context2.next = 2;
+                  break;
+                }
+
+                return _context2.abrupt("return", false);
+
+              case 2:
+                ref = _utils_firebase__WEBPACK_IMPORTED_MODULE_6__["default"].ref(deviceId);
+                _context2.next = 5;
+                return ref.set(firebase_admin__WEBPACK_IMPORTED_MODULE_7__["firestore"].FieldValue.delete());
+
+              case 5:
+                result = _context2.sent;
+                return _context2.abrupt("return", null);
+
+              case 7:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, _this);
+      }));
+
+      return function reset(_x4, _x5, _x6) {
+        return _ref4.apply(this, arguments);
+      };
+    }(),
+    setViewer: function () {
+      var _ref6 = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee3(obj, _ref7, _ref8) {
+        var _ref7$input = _ref7.input,
+            delay = _ref7$input.delay,
+            name = _ref7$input.name;
+        var asyncRef = _ref8.asyncRef,
+            deviceId = _ref8.deviceId;
+        var ref, delayRef, nameRef;
+        return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return asyncRef;
+
+              case 2:
+                ref = _context3.sent;
+
+                if (ref) {
+                  _context3.next = 5;
+                  break;
+                }
+
+                return _context3.abrupt("return", refError);
+
+              case 5:
+                delayRef = ref.child("delay");
+                nameRef = ref.child("name");
+                _context3.next = 9;
+                return babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_0___default.a.all([nameRef.set(name), delayRef.set(delay)]);
+
+              case 9:
+                return _context3.abrupt("return", { id: deviceId, name: name, delay: delay });
+
+              case 10:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, _this);
+      }));
+
+      return function setViewer(_x7, _x8, _x9) {
+        return _ref6.apply(this, arguments);
+      };
+    }()
+  }
+});
 
 /***/ }),
 
@@ -675,28 +578,20 @@ var Context = function () {
     this.user = headers && headers.user;
     this.request = request.req;
 
-    this.strippedId = headers && headers.deviceid && this.validate(headers).replace(/[.\#\$]/g, "-");
+    this.deviceId = headers && headers.deviceid && headers.deviceid.replace(/[.\#\$]/g, "-");
   }
 
   babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3___default()(Context, [{
-    key: "validate",
-    value: function validate(headers) {
-      if (!headers || !headers.deviceid) {
-        return "";
-      }
-      return headers.deviceid;
-    }
-  }, {
     key: "setRef",
     value: function () {
-      var _ref2 = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(deviceId) {
+      var _ref2 = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var isValue;
         return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _utils_firebase__WEBPACK_IMPORTED_MODULE_7__["default"].ref().child(deviceId).once("value").then(function (snap) {
+                return _utils_firebase__WEBPACK_IMPORTED_MODULE_7__["default"].ref().child(this.deviceId).once("value").then(function (snap) {
                   return snap.exists();
                 });
 
@@ -709,10 +604,10 @@ var Context = function () {
                 }
 
                 _context.next = 6;
-                return _utils_firebase__WEBPACK_IMPORTED_MODULE_7__["default"].ref().child(deviceId).set({ name: this.user, delay: 0 });
+                return _utils_firebase__WEBPACK_IMPORTED_MODULE_7__["default"].ref().child(this.deviceId).set({ delay: 0 });
 
               case 6:
-                return _context.abrupt("return", _utils_firebase__WEBPACK_IMPORTED_MODULE_7__["default"].ref(deviceId));
+                return _context.abrupt("return", _utils_firebase__WEBPACK_IMPORTED_MODULE_7__["default"].ref(this.deviceId));
 
               case 7:
               case "end":
@@ -722,7 +617,7 @@ var Context = function () {
         }, _callee, this);
       }));
 
-      function setRef(_x) {
+      function setRef() {
         return _ref2.apply(this, arguments);
       }
 
@@ -731,7 +626,7 @@ var Context = function () {
   }, {
     key: "asyncRef",
     get: function get() {
-      if (this.strippedId && this.user) return this.setRef(this.strippedId);
+      if (this.deviceId) return this.setRef();
     }
   }]);
 

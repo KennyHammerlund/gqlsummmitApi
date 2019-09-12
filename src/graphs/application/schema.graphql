@@ -1,9 +1,7 @@
 type Query {
-  test: String
-  summitUpload: SummitUpload
+  application: Application
 }
 
-type SummitUpload {
-  result: String
-  success: Boolean
+type Application {
+  online: Boolean
 }

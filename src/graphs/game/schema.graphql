@@ -1,19 +1,5 @@
-type Query {
-  application: Application
-  game: Game
-}
-
 type Mutation {
   addGameAction(input: GameActionInput): [GameAction]
-  addGame(input: AddGameInput): Game
-  clearGame(deviceId: String!): Boolean
-}
-
-type Game {
-  id: String
-  delay: Int
-  name: String
-  actions: [GameAction]
 }
 
 type GameAction {
@@ -28,14 +14,6 @@ input GameActionInput {
   type: GameActionType!
   value: Int!
   timeStamp: Int!
-}
-
-input AddGameInput {
-  name: String!
-}
-
-type Application {
-  online: Boolean
 }
 
 enum GameActionType {

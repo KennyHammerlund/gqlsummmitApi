@@ -1,8 +1,0 @@
-type Query {
-  "Delay in seconds"
-  delay: Int
-}
-
-type Mutation {
-  setDelay(delay: Int!): Int
-}

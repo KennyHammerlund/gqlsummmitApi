@@ -38,35 +38,27 @@ class Context {
     this.user = headers && headers.user;
     this.request = request.req;
 
-    this.strippedId =
-      headers &&
-      headers.deviceid &&
-      this.validate(headers).replace(/[.\#\$]/g, "-");
+    this.deviceId =
+      headers && headers.deviceid && headers.deviceid.replace(/[.\#\$]/g, "-");
   }
 
   get asyncRef() {
-    if (this.strippedId && this.user) return this.setRef(this.strippedId);
+    if (this.deviceId) return this.setRef();
   }
 
-  validate(headers) {
-    if (!headers || !headers.deviceid) {
-      return "";
-    }
-    return headers.deviceid;
-  }
-
-  async setRef(deviceId) {
+  async setRef() {
     const isValue = await db
       .ref()
-      .child(deviceId)
+      .child(this.deviceId)
       .once("value")
       .then(snap => snap.exists());
     if (!isValue) {
       await db
         .ref()
-        .child(deviceId)
-        .set({ name: this.user, delay: 0 });
+        .child(this.deviceId)
+        .set({ delay: 0 });
     }
-    return db.ref(deviceId);
+
+    return db.ref(this.deviceId);
   }
 }
