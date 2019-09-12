@@ -447,7 +447,7 @@ var refError = new apollo_server__WEBPACK_IMPORTED_MODULE_5__["ApolloError"]("no
             name = _ref7$input.name;
         var asyncRef = _ref8.asyncRef,
             deviceId = _ref8.deviceId;
-        var ref, delayRef, nameRef;
+        var ref, delayRef, nameRef, viewer;
         return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
@@ -472,9 +472,16 @@ var refError = new apollo_server__WEBPACK_IMPORTED_MODULE_5__["ApolloError"]("no
                 return babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_0___default.a.all([nameRef.set(name), delayRef.set(delay)]);
 
               case 9:
-                return _context3.abrupt("return", { id: deviceId, name: name, delay: delay });
+                _context3.next = 11;
+                return ref.once("value").then(function (snap) {
+                  return snap.val();
+                });
 
-              case 10:
+              case 11:
+                viewer = _context3.sent;
+                return _context3.abrupt("return", babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_3___default()({ id: deviceId }, viewer));
+
+              case 13:
               case "end":
                 return _context3.stop();
             }

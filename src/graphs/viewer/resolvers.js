@@ -36,8 +36,8 @@ export default {
       let nameRef = ref.child("name");
 
       await Promise.all([nameRef.set(name), delayRef.set(delay)]);
-
-      return { id: deviceId, name, delay };
+      const viewer = await ref.once("value").then(snap => snap.val());
+      return { id: deviceId, ...viewer };
     }
   }
 };
