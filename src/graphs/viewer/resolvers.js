@@ -23,7 +23,7 @@ export default {
       if (!deviceId) return false;
       const ref = db.ref(deviceId);
       const result = await ref.set(firestore.FieldValue.delete());
-      return null;
+      return { id: deviceId };
     },
     setViewer: async (
       obj,

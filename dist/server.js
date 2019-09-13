@@ -426,7 +426,7 @@ var refError = new apollo_server__WEBPACK_IMPORTED_MODULE_5__["ApolloError"]("no
 
               case 5:
                 result = _context2.sent;
-                return _context2.abrupt("return", null);
+                return _context2.abrupt("return", { id: deviceId });
 
               case 7:
               case "end":
