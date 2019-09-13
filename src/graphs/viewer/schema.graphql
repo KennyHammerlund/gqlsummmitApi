@@ -16,4 +16,5 @@ type Viewer {
   name: String
   delay: Int
   actions: [GameAction]!
+  optimistic: Boolean
 }
