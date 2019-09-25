@@ -30,9 +30,9 @@ export default {
           timeStamp
         });
 
-        const snap = await docRef.once("value");
-        const actions = snap.val();
-        return Object.keys(actions).map(k => ({ id: k, ...actions[k] }));
+        const newSnap = await newRef.once("value");
+        if (!newSnap) return new ApolloError("No snap found");
+        return { id: newRef.key, ...newSnap.val() };
       });
     }
   }

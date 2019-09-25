@@ -1,5 +1,5 @@
 type Mutation {
-  addGameAction(input: GameActionInput): [GameAction]
+  addGameAction(input: GameActionInput): GameAction
 }
 
 type GameAction {

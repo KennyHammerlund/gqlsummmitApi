@@ -156,17 +156,14 @@ var _this = undefined;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! babel-runtime/helpers/extends */ "babel-runtime/helpers/extends");
 /* harmony import */ var babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! babel-runtime/core-js/object/keys */ "babel-runtime/core-js/object/keys");
-/* harmony import */ var babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! babel-runtime/regenerator */ "babel-runtime/regenerator");
-/* harmony import */ var babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! babel-runtime/core-js/promise */ "babel-runtime/core-js/promise");
-/* harmony import */ var babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! babel-runtime/helpers/asyncToGenerator */ "babel-runtime/helpers/asyncToGenerator");
-/* harmony import */ var babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var apollo_server__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! apollo-server */ "apollo-server");
-/* harmony import */ var apollo_server__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(apollo_server__WEBPACK_IMPORTED_MODULE_5__);
-
+/* harmony import */ var babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! babel-runtime/regenerator */ "babel-runtime/regenerator");
+/* harmony import */ var babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! babel-runtime/core-js/promise */ "babel-runtime/core-js/promise");
+/* harmony import */ var babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! babel-runtime/helpers/asyncToGenerator */ "babel-runtime/helpers/asyncToGenerator");
+/* harmony import */ var babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var apollo_server__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! apollo-server */ "apollo-server");
+/* harmony import */ var apollo_server__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(apollo_server__WEBPACK_IMPORTED_MODULE_4__);
 
 
 
@@ -177,9 +174,9 @@ var _this = undefined;
 
 
 var addDelay = function () {
-  var _ref = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee(ref, callback) {
+  var _ref = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee(ref, callback) {
     var delayRef, delay;
-    return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee$(_context) {
+    return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
@@ -191,7 +188,7 @@ var addDelay = function () {
 
           case 3:
             delay = _context.sent;
-            return _context.abrupt("return", new babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_3___default.a(function (res, rej) {
+            return _context.abrupt("return", new babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_2___default.a(function (res, rej) {
               setTimeout(function () {
                 return callback().then(res).catch(rej);
               }, delay * 1000);
@@ -210,16 +207,16 @@ var addDelay = function () {
   };
 }();
 
-var refError = new apollo_server__WEBPACK_IMPORTED_MODULE_5__["ApolloError"]("no user/email attached", "EMAIL_ERROR");
+var refError = new apollo_server__WEBPACK_IMPORTED_MODULE_4__["ApolloError"]("no user/email attached", "EMAIL_ERROR");
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   Mutation: {
     addGameAction: function () {
-      var _ref2 = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee3(obj, _ref3, _ref4) {
+      var _ref2 = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee3(obj, _ref3, _ref4) {
         var input = _ref3.input;
         var asyncRef = _ref4.asyncRef;
         var ref, value, type, timeStamp, docRef;
-        return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee3$(_context3) {
+        return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
@@ -239,9 +236,9 @@ var refError = new apollo_server__WEBPACK_IMPORTED_MODULE_5__["ApolloError"]("no
               case 5:
                 value = input.value, type = input.type, timeStamp = input.timeStamp;
                 docRef = ref.child("actions");
-                return _context3.abrupt("return", addDelay(ref, babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_4___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee2() {
-                  var newRef, snap, actions;
-                  return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee2$(_context2) {
+                return _context3.abrupt("return", addDelay(ref, babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee2() {
+                  var newRef, newSnap;
+                  return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee2$(_context2) {
                     while (1) {
                       switch (_context2.prev = _context2.next) {
                         case 0:
@@ -255,16 +252,22 @@ var refError = new apollo_server__WEBPACK_IMPORTED_MODULE_5__["ApolloError"]("no
                         case 2:
                           newRef = _context2.sent;
                           _context2.next = 5;
-                          return docRef.once("value");
+                          return newRef.once("value");
 
                         case 5:
-                          snap = _context2.sent;
-                          actions = snap.val();
-                          return _context2.abrupt("return", babel_runtime_core_js_object_keys__WEBPACK_IMPORTED_MODULE_1___default()(actions).map(function (k) {
-                            return babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({ id: k }, actions[k]);
-                          }));
+                          newSnap = _context2.sent;
+
+                          if (newSnap) {
+                            _context2.next = 8;
+                            break;
+                          }
+
+                          return _context2.abrupt("return", new apollo_server__WEBPACK_IMPORTED_MODULE_4__["ApolloError"]("No snap found"));
 
                         case 8:
+                          return _context2.abrupt("return", babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({ id: newRef.key }, newSnap.val()));
+
+                        case 9:
                         case "end":
                           return _context2.stop();
                       }
