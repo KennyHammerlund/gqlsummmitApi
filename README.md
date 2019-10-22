@@ -3,7 +3,7 @@ Apollo graphql server for the Optimistic UI: Predicting the future presentation 
 
 Live server hosted on a Heroku dyno at  https://sg-summit-api.herokuapp.com/
 
-The purpouse of this server is to help illustrate how optimistic UI works. The server has a delay that can be set to delay the response from the server. This allows your client to handle slow server responses. 
+The purpose of this server is to help illustrate how optimistic UI works. The server has a delay that can be set to delay the response from the server. This allows your client to handle slow server responses. 
 
 ## Usage
 
